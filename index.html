@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#071b2c">
+<title>Diamond League 26</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand-mark">DL<span>26</span></div>
+  <div><div class="eyebrow">MOBILE BASEBALL</div><h1>DIAMOND LEAGUE <span>26</span></h1></div>
+  <div class="live-pill"><i></i> PLAY NOW</div>
+</header>
+
+<main>
+  <section class="setup panel">
+    <div class="section-heading"><div><div class="eyebrow">YOUR MATCHUP</div><h2>Set the lineup</h2></div><span class="step">01 / 02</span></div>
+    <div class="team-grid">
+      <label>Batting team<select id="homeTeam"></select></label>
+      <label>Opposing team<select id="awayTeam"></select></label>
+      <label>Ballpark<select id="ballpark"></select></label>
+      <label>2026 roster<select id="rosterSelect"><option value="active">Active roster</option><option value="40man">40-man roster</option></select></label>
+    </div>
+    <div class="roster-line"><span id="rosterStatus">Choose a team to load roster information.</span><button id="loadRoster" class="small-btn">LOAD ROSTER</button></div>
+    <div id="rosterList" class="roster-list" aria-live="polite"></div>
+    <div class="section-heading gameplay-head"><div><div class="eyebrow">GAME SETTINGS</div><h2>Choose your approach</h2></div></div>
+    <div class="mode-row">
+      <button class="mode active" data-mode="bat">⚾ Batting practice</button>
+      <button class="mode" data-mode="pitch">🎯 Pitching practice</button>
+    </div>
+    <button id="startGame" class="primary">START GAME <span>→</span></button>
+  </section>
+
+  <section class="game panel">
+    <div class="game-header">
+      <div><div class="eyebrow" id="stadiumEyebrow">BALLPARK</div><h2 id="stadiumName">Choose a ballpark</h2></div>
+      <div class="scoreboard"><div><span id="inning">TOP 1</span><b id="count">0 - 0</b><small>BALLS · STRIKES</small></div><div><span>RUNS</span><b id="runs">0</b><small id="outs">0 OUT</small></div></div>
+    </div>
+    <div class="field-wrap">
+      <canvas id="field" width="960" height="540" aria-label="Interactive baseball field game"></canvas>
+      <div id="toast" class="toast">Tap START GAME to play</div>
+    </div>
+    <div class="game-controls">
+      <div class="control-block">
+        <div class="control-title">HITTING</div>
+        <div class="button-row">
+          <button id="normalHit" class="action-btn hit">NORMAL HIT <kbd>X</kbd></button>
+          <button id="powerHit" class="action-btn power">POWER <kbd>□</kbd></button>
+          <button id="buntHit" class="action-btn bunt">BUNT <kbd>△</kbd></button>
+        </div>
+        <div class="hint">Move the target to aim. Swing as the pitch crosses the zone.</div>
+      </div>
+      <div class="control-block">
+        <div class="control-title">PITCHING</div>
+        <div class="button-row">
+          <button id="pitchBtn" class="action-btn pitch">THROW PITCH <kbd>○</kbd></button>
+          <select id="pitchType" aria-label="Pitch type">
+            <option>4-Seam Fastball</option><option>Sinker</option><option>Cutter</option><option>Slider</option><option>Curveball</option><option>Changeup</option><option>Splitter</option>
+          </select>
+        </div>
+        <div class="hint">Pick a pitch, aim with the target, then throw.</div>
+      </div>
+    </div>
+    <div class="game-footer">
+      <div><span class="status-dot"></span><span id="controllerStatus">Controller: checking…</span></div>
+      <button id="resetGame" class="text-btn">RESET GAME</button>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="feature"><b>01</b><div><strong>Pinpoint-style aiming</strong><p>Drag or use a stick to place your target, then time your swing.</p></div></div>
+    <div class="feature"><b>02</b><div><strong>Three swing types</strong><p>Normal contact, power swing, and bunt each have different outcomes.</p></div></div>
+    <div class="feature"><b>03</b><div><strong>Controller ready</strong><p>Supports standard browser Gamepad API mappings, including many PS4 controllers.</p></div></div>
+  </section>
+  <p class="disclaimer">Fan-made prototype for learning and play. Not affiliated with or endorsed by MLB or Sony. Roster loading depends on the public MLB Stats API being reachable from your browser. Pitch repertoires in this prototype are selectable gameplay options, not verified scouting data for every pitcher.</p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
